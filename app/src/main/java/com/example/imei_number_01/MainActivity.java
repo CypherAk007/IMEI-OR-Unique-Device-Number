@@ -34,22 +34,10 @@ public class MainActivity extends AppCompatActivity {
         imeitxt = (TextView)findViewById(R.id.imei_Number);
         imeibtn = (Button)findViewById(R.id.getimeibtn);
 
-//        int permissionI = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
-//
-//        if(permissionI == PackageManager.PERMISSION_GRANTED){
-////            If user has granted the permission then we store the imei no. in tm varible
-//            tm =(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-//            imei = tm.getDeviceId().toString();
-//        }
-//        else{
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE},123);
-//        }
 
         imeibtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                uId = getDeviceId(context);
-//                uId =  android_id;
                 uId =  getIMEIDeviceId( MainActivity.getAppContext());
                 imeitxt.setText(uId);
             }
@@ -59,29 +47,7 @@ public class MainActivity extends AppCompatActivity {
     public static Context getAppContext() {
         return MainActivity.context;
     }
-//    private String android_id = Secure.getString(context.getApplicationContext().getContentResolver(),Secure.ANDROID_ID);
 
-//    public static String getDeviceId(Context context) {
-//
-//        String deviceId;
-//
-//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//            deviceId = Settings.Secure.getString(
-//                    context.getContentResolver(),
-//                    Settings.Secure.ANDROID_ID);
-//        } else {
-//            final TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-//            if (mTelephony.getDeviceId() != null) {
-//                deviceId = mTelephony.getDeviceId();
-//            } else {
-//                deviceId = Settings.Secure.getString(
-//                        context.getContentResolver(),
-//                        Settings.Secure.ANDROID_ID);
-//            }
-//        }
-//
-//        return deviceId;
-//    }
 
     public static String getIMEIDeviceId(Context context) {
 
